@@ -7,6 +7,17 @@
 //
 
 #import "SerialPort.h"
+#import "serial.h"
+
+/* -------------------------------------------------------------------------- */
+// C code for dealing with serial port
+/* -------------------------------------------------------------------------- */
+
+
+
+/* -------------------------------------------------------------------------- */
+// CLASS IMPLEMENTATION
+/* -------------------------------------------------------------------------- */
 
 @implementation SerialPort
 
@@ -15,6 +26,7 @@
 @synthesize parity          = _parity;
 @synthesize dataBits        = _dataBits;
 @synthesize stopBits        = _stopBits;
+@synthesize handle          = _handle;
 @synthesize buffer          = _buffer;
 @synthesize bufferLength    = _bufferLength;
 
@@ -37,8 +49,8 @@
 - (id) initWithComPort:(NSString*) comPort
              andBaudRate:(NSInteger) baudRate
                andParity:(NSInteger) parity
-             andDataBits:(int) dataBits
-              andStopBit:(int) stopBits
+             andDataBits:(NSInteger) dataBits
+              andStopBit:(NSInteger) stopBits
 {
     if (self = [super init]) {
         _comPort = comPort;
@@ -50,9 +62,28 @@
     return self;
 }
 
+
 - (BOOL) connect
 {
     @try {
+        _handle = c_openSerialPort([_comPort UTF8String],
+                                 _baudRate,
+                                 _dataBits,
+                                 _stopBits,
+                                 _parity);
+        
+        if (_handle < 0) {
+            if (_handle == -1)
+                NSLog(@"Cannot connect to %@ serial COM port", _comPort);
+            if (_handle == -2)
+                NSLog(@"Cannot connect to %@ serial COM port. DataBits value is not allowed.", _comPort);
+            if (_handle == -3)
+                NSLog(@"Cannot connect to %@ serial COM port. StopBits value is not allowed.", _comPort);
+            if (_handle == -4)
+                NSLog(@"Cannot connect to %@ serial COM port. Parity value is not allowed.", _comPort);
+            return FALSE;
+        }
+        
         return TRUE;
     }
     @catch(NSException *e) {
@@ -64,6 +95,7 @@
 - (NSData*) read
 {
     // TODO: implement this method
+    return nil;
 }
 
 - (void) debug

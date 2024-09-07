@@ -19,6 +19,8 @@
 		AAFC2CB12C8B613C00F540A0 /* MacSerialParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFC2CB02C8B613C00F540A0 /* MacSerialParserTests.m */; };
 		AAFC2CBC2C8B61E100F540A0 /* SerialPort.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFC2CBB2C8B61E100F540A0 /* SerialPort.m */; };
 		AAFC2CBD2C8B61E100F540A0 /* SerialPort.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFC2CBB2C8B61E100F540A0 /* SerialPort.m */; };
+		AAFC2CBF2C8C5DCD00F540A0 /* serial.c in Sources */ = {isa = PBXBuildFile; fileRef = AAFC2CBE2C8C5DCD00F540A0 /* serial.c */; };
+		AAFC2CC02C8C5DCD00F540A0 /* serial.c in Sources */ = {isa = PBXBuildFile; fileRef = AAFC2CBE2C8C5DCD00F540A0 /* serial.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		AAFC2CB02C8B613C00F540A0 /* MacSerialParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MacSerialParserTests.m; sourceTree = "<group>"; };
 		AAFC2CBA2C8B61E100F540A0 /* SerialPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialPort.h; sourceTree = "<group>"; };
 		AAFC2CBB2C8B61E100F540A0 /* SerialPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialPort.m; sourceTree = "<group>"; };
+		AAFC2CBE2C8C5DCD00F540A0 /* serial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = serial.c; sourceTree = "<group>"; };
+		AAFC2CC12C8C5DE000F540A0 /* serial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = serial.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 				AAFC2C8D2C8B613C00F540A0 /* Supporting Files */,
 				AAFC2CBA2C8B61E100F540A0 /* SerialPort.h */,
 				AAFC2CBB2C8B61E100F540A0 /* SerialPort.m */,
+				AAFC2CBE2C8C5DCD00F540A0 /* serial.c */,
+				AAFC2CC12C8C5DE000F540A0 /* serial.h */,
 			);
 			path = MacSerialParser;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 				AAFC2C932C8B613C00F540A0 /* main.m in Sources */,
 				AAFC2C9A2C8B613C00F540A0 /* AppDelegate.m in Sources */,
 				AAFC2CBC2C8B61E100F540A0 /* SerialPort.m in Sources */,
+				AAFC2CBF2C8C5DCD00F540A0 /* serial.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +287,7 @@
 			files = (
 				AAFC2CB12C8B613C00F540A0 /* MacSerialParserTests.m in Sources */,
 				AAFC2CBD2C8B61E100F540A0 /* SerialPort.m in Sources */,
+				AAFC2CC02C8C5DCD00F540A0 /* serial.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
