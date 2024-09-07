@@ -71,6 +71,6 @@ typedef NS_ENUM(NSInteger, e_stopBits)
 
 - (NSData*) read;
 
-- (void) debug;
+- (void) toString;
 
 @end

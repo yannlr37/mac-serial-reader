@@ -66,11 +66,7 @@
 - (BOOL) connect
 {
     @try {
-        _handle = c_openSerialPort([_comPort UTF8String],
-                                 _baudRate,
-                                 _dataBits,
-                                 _stopBits,
-                                 _parity);
+        _handle = c_openSerialPort([_comPort UTF8String], _baudRate, _dataBits, _stopBits, _parity);
         
         if (_handle < 0) {
             if (_handle == -1)
@@ -92,13 +88,30 @@
     }
 }
 
+/**
+ * Read data from serial port
+ * Store inte NSData object
+ */
 - (NSData*) read
 {
-    // TODO: implement this method
-    return nil;
+    uint8_t buffer[_bufferLength];
+    
+    ssize_t bytesRead = c_readFromSerialPort(_handle, buffer, _bufferLength);
+    
+    if (bytesRead > 0) {
+        NSData *data = [NSData dataWithBytes:buffer length:bytesRead];
+        // TODO: convert data into NSMutableArray ?
+        return data;
+    } else {
+        return nil;
+    }
 }
 
-- (void) debug
+/**
+ * Expose the internal data of this class.
+ * Used for debuggnig
+ */
+- (void) toString
 {
     // TODO: implement this method
 }
